@@ -9,6 +9,9 @@
 
 **GET Rest Assured**
 
+        String responseText = get().then().extract().path(path).toString();
+        assertThat(responseText, containsString(value));
+
 **POST Rest Assured**
 
 ```
