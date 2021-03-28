@@ -12,8 +12,19 @@
 **POST Rest Assured**
 
 ```
-Post com Body, Status code, 
 
-    > given().contentType(JSON).body(jsonObject).expect().statusCode(201).body(path, is(value)).when().post().asString();
-     
+  given().contentType(JSON).body(jsonObject).expect().statusCode(201).body(path, is(value)).when().post().asString();
+ 
+  given().formParam("key", "value").contentType(JSON).body(jsonObject).expect().statusCode(201).body(path, is(value)).when().post().asString();
+    
+    > 
+   
+```
+**Teste de contrato**
+
+```
+given().when().get().then().assertThat().body(matchesJsonSchemaInClasspath("schemas/" + jsonName));
+
+given().formParam("key", "value").header("key", "value").when().get().then().assertThat().body(matchesJsonSchemaInClasspath("schemas/" + jsonName));
+
 ```
